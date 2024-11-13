@@ -3,7 +3,7 @@ kind: MemsqlCluster
 metadata:
   name: sdb-cluster
 spec:
-  license: "xxxx"
+  license: "xxx"
   adminHashedPassword: "*9177CC8207174BDBB5ED66B2140C75171283F15D"
   nodeImage:
     repository: singlestore/node
@@ -12,6 +12,9 @@ spec:
   redundancyLevel: 2
 
   serviceSpec:
+    type: "NodePort"
+    externalTrafficPolicy: "Cluster"
+    headless: false
     objectMetaOverrides:
       labels:
         custom: label
