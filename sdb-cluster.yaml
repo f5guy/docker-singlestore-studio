@@ -18,6 +18,10 @@ spec:
       annotations:
         custom: annotations
 
+  globalSpec:
+    globalVariables:
+      enable_bottomless: "ON"
+
   aggregatorSpec:
     count: 2
     height: 0.5
@@ -29,6 +33,9 @@ spec:
         optional: annotation
       labels:
         optional: label
+    globalVariables:
+      http_api: "ON"
+      http_proxy_port: "8081"
 
   leafSpec:
     count: 2
@@ -41,3 +48,6 @@ spec:
         optional: annotation
       labels:
         optional: label
+    globalVariables:
+      http_api: "ON"
+      http_proxy_port: "8081"
