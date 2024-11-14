@@ -12,6 +12,7 @@ spec:
   redundancyLevel: 2
 
   serviceSpec:
+    disableDDLAndDMLService: false
     type: "NodePort"
     externalTrafficPolicy: "Cluster"
     headless: false
