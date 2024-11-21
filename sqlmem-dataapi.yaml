@@ -1,0 +1,30 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: sqlmem-dataapi
+  namespace: singlestore
+spec:
+  host: sqlmem-dataapi.vnpt.vn
+  port:
+    targetPort: 8081
+  tls:
+    caCertificate: |-
+      -----BEGIN CERTIFICATE-----
+      -----END CERTIFICATE-----
+      -----BEGIN CERTIFICATE-----
+      -----END CERTIFICATE-----
+    certificate: |-
+      -----BEGIN CERTIFICATE-----
+      -----END CERTIFICATE-----
+      -----BEGIN CERTIFICATE-----
+      -----END CERTIFICATE-----
+    insecureEdgeTerminationPolicy: None
+    key: |-
+      -----BEGIN RSA PRIVATE KEY-----
+      -----END RSA PRIVATE KEY-----
+    termination: edge
+  to:
+    kind: Service
+    name: memsql-dataapi
+    weight: 100
+  wildcardPolicy: None
