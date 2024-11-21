@@ -2,6 +2,7 @@ apiVersion: memsql.com/v1alpha1
 kind: MemsqlCluster
 metadata:
   name: sdb-cluster
+  namespace: singlestore
 spec:
   license: "xxx"
   adminHashedPassword: "*9177CC8207174BDBB5ED66B2140C75171283F15D"
