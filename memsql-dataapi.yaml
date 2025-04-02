@@ -13,6 +13,7 @@ spec:
     protocol: TCP
     targetPort: 8081
   selector:
+    app.kubernetes.io/component: aggregator
     app.kubernetes.io/name: memsql-cluster
   sessionAffinity: None
   type: ClusterIP
