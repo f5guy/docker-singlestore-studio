@@ -4,13 +4,17 @@ metadata:
   name: sdb-cluster
   namespace: singlestore
 spec:
-  license: "xxx"
-  adminHashedPassword: "*9177CC8207174BDBB5ED66B2140C75171283F15D"
+  license: "xxxxx"
+  adminHashedPassword: "xxxxx"
   nodeImage:
-    repository: singlestore/node
-    tag: alma-8.7.27-b093d396c5
+    repository: xxx/singlestore/node
+    tag: alma-8.9.18-a279bf2484
 
   redundancyLevel: 2
+
+  globalSpec:
+    globalVariables:
+      enable_bottomless: "ON"
 
   serviceSpec:
     type: "NodePort"
@@ -22,14 +26,10 @@ spec:
       annotations:
         custom: annotations
 
-  globalSpec:
-    globalVariables:
-      enable_bottomless: "ON"
-
   aggregatorSpec:
     count: 2
     height: 0.5
-    storageGB: 100
+    storageGB: 150
     storageClass: ocs-storagecluster-ceph-rbd
 
     objectMetaOverrides:
@@ -38,13 +38,13 @@ spec:
       labels:
         optional: label
     globalVariables:
-      http_api: "ON"
-      http_proxy_port: "8081"
+        http_api: "ON"
+        http_proxy_port: "8081"
 
   leafSpec:
     count: 2
     height: 0.5
-    storageGB: 100
+    storageGB: 150
     storageClass: ocs-storagecluster-ceph-rbd
 
     objectMetaOverrides:
@@ -52,6 +52,7 @@ spec:
         optional: annotation
       labels:
         optional: label
+
     globalVariables:
       http_api: "ON"
       http_proxy_port: "8081"
